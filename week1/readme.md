@@ -1,2 +1,2 @@
 TODO: Reflect on what you learned this week and what is still unclear.
-I have learnt that installing vscode/git
+I have learnt that installing vscode/github/Anaconda/python. I try to understand the relationship between each software and so far I understood that github is a sharespace for our submission and python is coding language and vscode is the program that I can write, run and test code and Anaconda is with python. I am still trying to find more potential use with python for architectural graphics and grasshopper and trying to understand the relationship between scripting, coding and programming. More stuff will need to clear out and understand. Good luck, Nathan.

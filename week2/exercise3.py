@@ -7,7 +7,11 @@ def is_odd(a_number):
 
     Look into modulo division using the '%' operator as one way of doing this.
     """
-    pass
+    if a_number is odd:
+        True
+
+    if a_number is even:
+        False
 
 
 def fix_it(moves=True, should_move=True):
@@ -22,8 +26,9 @@ def fix_it(moves=True, should_move=True):
     "No Problem"
     """
     pass
+    
 
-
+ 
 def loops_1a():
     """Make 10 stars.
 

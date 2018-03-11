@@ -10,20 +10,28 @@ import platform
 
 # I think this will print "hello! Let's get started" by calling the print function.
 print("hello! Let's get started")  # it printed "hello! Let's get started"
+# this creates a list with those words
+some_words = ['what', 'does', 'this', 'line', 'do', '?'] # it initialised a list with those words
 
-some_words = ['what', 'does', 'this', 'line', 'do', '?']
-
+# I think it will print out 'what' 
 for word in some_words:
     print(word)
+# It printed What does this line do?
 
+# I think it will print out does'
 for x in some_words:
     print(x)
+# It printed What does this line do?
 
+#I think it will print what does this line do ?
 print(some_words)
+# It printed ['what', 'does', 'this', 'line', 'do', '?']
 
+#I think it will print some_words contains more than 3 words ?
 if len(some_words) > 3:
     print('some_words contains more than 3 words')
-
+# it printed some_words contains more than 3 words
+#
 def usefulFunction():
     """
     You may want to look up what uname does before you guess

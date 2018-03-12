@@ -14,8 +14,8 @@ print("hello! Let's get started")  # it printed "hello! Let's get started"
 some_words = ['what', 'does', 'this', 'line', 'do', '?'] # it initialised a list with those words
 
 # I think it will print out 'what' 
-for word in some_words:
-    print(word)
+for w in some_words:
+    print(w)
 # It printed What does this line do?
 
 # I think it will print out does'

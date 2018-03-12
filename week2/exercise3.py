@@ -7,11 +7,11 @@ def is_odd(a_number):
 
     Look into modulo division using the '%' operator as one way of doing this.
     """
-    if a_number is odd:
-        True
+    if a_number % 2 == 0:
+        return False   
+    elif a_number % 2 != 0:
+        return True
 
-    if a_number is even:
-        False
 
 
 def fix_it(moves=True, should_move=True):
@@ -26,6 +26,21 @@ def fix_it(moves=True, should_move=True):
     "No Problem"
     """
     pass
+    if moves == True:
+        if should_move == False:
+            return 'Duct Tape'
+    elif moves == True:
+        if should_move == True:
+            return 'No Problem'
+
+    elif moves == False:
+        if should_move == True:
+            return 'WD-40'
+
+    elif moves == False:
+        if should_move == False:
+            return 'No Problem'
+
     
 
  
@@ -36,11 +51,13 @@ def loops_1a():
     return a list of 10 items, each one a string with exacly one star in it.
     E.g.: ['*', '*', '*', '*', '*', '*', '*', '*', '*', '*']
     """
-    pass
+    list = []
+    for _ in range(10):
+        list.append('*')
+    return list    
 
 
-
-def loops_1c(number_of_items=5, symbol="#"):
+def loops_1c(number_of_items=5, symbol='#'):
     """Respond to variables.
 
     using any method
@@ -48,7 +65,17 @@ def loops_1c(number_of_items=5, symbol="#"):
     a string with exacly one symbol in it.
     E.g.: ['#', '#', '#', '#', '#']
     """
-    pass
+    
+    a_list = []
+    for a in range(5):
+        a_list.append('#')
+    return a_list
+
+    '''a_list = [None] * number_of_items
+    for index in range(number_of_items):
+        a_list[index] = symbol
+    return a_list'''
+
 
 
 def loops_2():
@@ -69,7 +96,12 @@ def loops_2():
             ['*', '*', '*', '*', '*', '*', '*', '*', '*', '*'],
           ]
     """
-    pass
+    result = []
+    b_list = ['*'] * 10
+    for i in range(10):
+        result.append(b_list)
+    
+    return result
 
 
 def loops_3():
@@ -91,9 +123,17 @@ def loops_3():
     remember that range(10) produces a list of numbers from 0...9
     So for every step produced by `for i in range(10):` i is a different number
     TIP: notice that this needs to to return strings of numbers,
-         so call str(number) to cast.
+         so call str(number) to cast.  
     """
-    pass
+
+    number = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    b_result = []
+    for i in range(10):
+        d_list = [str(i)] * 10
+        b_result.append(d_list)
+
+    return b_result
+
 
 
 def loops_4():
@@ -113,7 +153,13 @@ def loops_4():
       ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
     ]
     """
-    pass
+    number = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    c_result = []
+    e_list = [number]
+    for i in range(10):
+        c_result.append(e_list)
+
+    return c_result
 
 
 def loops_5():
@@ -138,7 +184,17 @@ def loops_5():
         "There are {} green bottles".format(8)
     you'll come to see the pros and cons of each over time.
     """
-    pass
+    result_list = []
+    for i in range (10):
+        row_list = []
+        for j in range(5):
+            element = '(' + 'i' + str(i) + ',' + ' ' + 'j' + str(j) + ')'
+            row_list.append(element)
+        result_list.append(row_list)
+
+    return result_list
+
+
 
 
 def loops_6():
@@ -161,7 +217,15 @@ def loops_6():
     You can use a variable.
     TIP: look out for the starting condition.
     """
-    pass
+    result_list = []
+    for i in range (10):
+        row_list = []
+        for j in range(i+1):
+            element = str(j)
+            row_list.append(element)
+        result_list.append(row_list)
+
+    return result_list
 
 
 def loops_7():
@@ -185,7 +249,21 @@ def loops_7():
     This is a hard problem. Use lots of experimentation and draw
     lots of diagrams!
     """
-    pass
+    result_list = []
+
+    for i in range(5):
+        center = 4
+        radius = i 
+        start = center - radius
+        end =  center + radius
+
+        row_list = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
+        for j in range(start, end + 1):
+            row_list[j] = '*'
+
+        result_list.append(row_list)
+
+    return result_list
 
 
 def lp(some_kind_of_list, exercise_name):

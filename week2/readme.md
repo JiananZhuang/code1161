@@ -1,1 +1,2 @@
 TODO: Reflect on what you learned this week and what is still unclear.
+# This week, I start to think more about the pythod langage, such as how to define a function, looping, relationship between each line of the coding, variables, and data types. I have learnt a lot in the excerise like how to predict what will happen next and if statement. I am still confusing about the 'casting' and 'string'. I will get my hand around. 

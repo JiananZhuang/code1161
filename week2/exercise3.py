@@ -29,15 +29,12 @@ def fix_it(moves=True, should_move=True):
     if moves == True:
         if should_move == False:
             return 'Duct Tape'
-    elif moves == True:
         if should_move == True:
             return 'No Problem'
 
     elif moves == False:
         if should_move == True:
             return 'WD-40'
-
-    elif moves == False:
         if should_move == False:
             return 'No Problem'
 
@@ -67,8 +64,8 @@ def loops_1c(number_of_items=5, symbol='#'):
     """
     
     a_list = []
-    for a in range(5):
-        a_list.append('#')
+    for a in range(number_of_items):
+        a_list.append(symbol)
     return a_list
 
     '''a_list = [None] * number_of_items
@@ -126,7 +123,7 @@ def loops_3():
          so call str(number) to cast.  
     """
 
-    number = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
     b_result = []
     for i in range(10):
         d_list = [str(i)] * 10
@@ -153,9 +150,9 @@ def loops_4():
       ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
     ]
     """
-    number = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    
     c_result = []
-    e_list = [number]
+    e_list = ['0', '1', '2', '3', '4','5', '6', '7', '8', '9']
     for i in range(10):
         c_result.append(e_list)
 

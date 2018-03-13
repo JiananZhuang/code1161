@@ -12,7 +12,16 @@ def loop_ranger(start, stop=None, step=1):
 
     Do this using any method apart from just using range()
     """
-    pass
+    a_list = []
+    a = start
+    while a < stop:
+        a_list.append(a)
+        a = a + 2
+    
+    return a_list
+
+    
+
 
 
 def lone_ranger(start, stop, step):
@@ -20,7 +29,7 @@ def lone_ranger(start, stop, step):
 
     Look up the docs for range() and wrap it in a 1:1 way
     """
-    pass
+    range(1,2,0.5)
 
 
 def two_step_ranger(start, stop):
@@ -67,7 +76,6 @@ def super_asker(low, high):
     that does it all!
     """
     pass
-
 
 if __name__ == "__main__":
     # this section does a quick test on your results and prints them nicely.

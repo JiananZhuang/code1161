@@ -14,7 +14,7 @@ import sys
 from pathlib import Path
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
-
+sys.path.append(os.path.dirname(__file__))
 from codeHelpers import completion_message, ex_runs, nyan_cat, test
 
 

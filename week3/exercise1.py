@@ -6,7 +6,6 @@ Modify each function until the tests pass.
 
 
 
-
 def loop_ranger(start, stop=10, step=1):
     """Return a list of numbers between start and stop in steps of step.
 
@@ -88,7 +87,7 @@ def stubborn_asker(low, high):
     """
     import random
     n = random.randint(low, high)
-    guess = int(input("Enter an integer from 1 to 99: "))
+    guess = int(input("Enter a number: "))
 
     if n == guess:
         print('Yes, You guessed it!')
@@ -97,10 +96,10 @@ def stubborn_asker(low, high):
     while n != guess:
         if guess < n:
             print("guess is low")
-            guess = int(input("Enter an integer from 1 to 99: "))
+            guess = int(input("Enter a number: "))
         elif guess > n:
             print("guess is high")
-            guess = int(input("Enter an integer from 1 to 99: "))
+            guess = int(input("Enter a number: "))
         else:
             print("you guessed it!")
             break
@@ -115,12 +114,12 @@ def not_number_rejector(message):
     "six", "8!") then throw it out and ask for an actual number.
     When you do get a number, return it.
     """
-    guess = input("Enter anything: ")
+    a_guess = input(message)
 
-    While type(guess) != int
+    while type(a_guess) != int():
         print("Enter Something else")
 
-    elif type(guess) == int():
+    if type(a_guess) == int():
         print("Thank you, that is the one")
 
     return

@@ -7,7 +7,7 @@ Modify each function until the tests pass.
 
 
 
-def loop_ranger(start, stop=None, step=1):
+def loop_ranger(start, stop=10, step=1):
     """Return a list of numbers between start and stop in steps of step.
 
     Do this using any method apart from just using range()
@@ -16,11 +16,10 @@ def loop_ranger(start, stop=None, step=1):
     a = start
     while a < stop:
         a_list.append(a)
-        a = a + 2
+        a = a + step
     
     return a_list
-
-    
+  
 
 
 
@@ -29,7 +28,18 @@ def lone_ranger(start, stop, step):
 
     Look up the docs for range() and wrap it in a 1:1 way
     """
-    range(1,2,0.5)
+    b_list = []
+    b = start
+    while b < stop:
+        b_list.append(b)
+        b = b + step
+
+    return b_list
+
+for b in range(2, 10, 1):
+    print (b)
+
+    
 
 
 def two_step_ranger(start, stop):
@@ -38,8 +48,37 @@ def two_step_ranger(start, stop):
     Sometimes you want to hide complexity.
     Make a range function that always has a step size of 2
     """
-    pass
 
+    c_list = []
+    c = start
+    while c < stop:
+        c_list.append(c)
+        c = c + 2
+    
+    return c_list
+
+for c in range(2, 10, 2):
+    print (c)
+
+
+def gene_krupa_range(start, stop, even_step, odd_step):
+    """Make a range that has two step sizes.
+
+    make a list that instead of having evenly spaced steps
+    has odd steps be one size and even steps be another.
+    """
+
+    d_list = []
+    d = start
+    flag = 0
+    while d < stop:
+        d_list.append(d)
+        if flag % 2 == 0:
+            d += even_step
+        elif flag % 2 == 1:
+            d += odd_step
+        flag += 1
+    return d_list
 
 def stubborn_asker(low, high):
     """Ask for a number between low and high until actually given one.
@@ -47,7 +86,26 @@ def stubborn_asker(low, high):
     Ask for a number, and if the response is outside the bounds keep asking
     until you get a number that you think is OK
     """
-    pass
+    import random
+    n = random.randint(low, high)
+    guess = int(input("Enter an integer from 1 to 99: "))
+
+    if n == guess:
+        print('Yes, You guessed it!')
+        return
+
+    while n != guess:
+        if guess < n:
+            print("guess is low")
+            guess = int(input("Enter an integer from 1 to 99: "))
+        elif guess > n:
+            print("guess is high")
+            guess = int(input("Enter an integer from 1 to 99: "))
+        else:
+            print("you guessed it!")
+            break
+
+       
 
 
 def not_number_rejector(message):
@@ -57,7 +115,15 @@ def not_number_rejector(message):
     "six", "8!") then throw it out and ask for an actual number.
     When you do get a number, return it.
     """
-    pass
+    guess = input("Enter anything: ")
+
+    While type(guess) != int
+        print("Enter Something else")
+
+    elif type(guess) == int():
+        print("Thank you, that is the one")
+
+    return
 
 
 def super_asker(low, high):
@@ -79,6 +145,7 @@ if __name__ == "__main__":
     print("\nloop_ranger", loop_ranger(1, 10, 2))
     print("\nlone_ranger", lone_ranger(1, 10, 3))
     print("\ntwo_step_ranger", two_step_ranger(1, 10))
+    print("\ngene_krupa_range", gene_krupa_range(1, 20, 2, 5))
     print("\nstubborn_asker")
     stubborn_asker(30, 45)
     print("\nnot_number_rejector")

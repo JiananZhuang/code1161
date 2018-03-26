@@ -117,7 +117,7 @@ def not_number_rejector(message):
     a_guess = input(message)
 
     while type(a_guess) != int():
-        print("Enter Something else")
+        print("Enter a number: ")
 
     if type(a_guess) == int():
         print("Thank you, that is the one")
@@ -131,7 +131,32 @@ def super_asker(low, high):
     Combine stubborn_asker and not_number_rejector to make a function
     that does it all!
     """
-    pass
+    import random
+    n = random.randint(low, high)
+    flag = False
+
+    # make sure guess_n is a valid number
+    while not flag:
+        try:
+            guess_n = int(input('input a nubmer between {} and {}: '.format(low,high)))
+            flag = True
+        except ValueError:
+            print ('Please try a number')    
+    # guess_n now is a valid number 
+      # find the right one
+            continue
+        if guess_n > n:
+            print("Your guesses is too high, Try again")
+        elif guess_n < n:
+            print("Your guesses is too low, Try again")
+        else guess_n = n:
+            print("You Win !!!")
+            flag = True
+            return
+
+
+
+
 
 if __name__ == "__main__":
     # this section does a quick test on your results and prints them nicely.

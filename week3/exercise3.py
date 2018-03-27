@@ -56,8 +56,7 @@ def advancedGuessingGame():
 
         except ValueError: 
             print("That's not a number, try again.")
-        except TypeError:
-            print("That's not a number, try again.")
+
             continue
     return ('You Have Got It!')
 

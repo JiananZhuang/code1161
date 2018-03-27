@@ -35,8 +35,8 @@ def lone_ranger(start, stop, step):
 
     return b_list
 
-for b in range(2, 10, 1):
-    print (b)
+'''for b in range(2, 10, 1):
+    print (b)'''
 
     
 
@@ -56,8 +56,8 @@ def two_step_ranger(start, stop):
     
     return c_list
 
-for c in range(2, 10, 2):
-    print (c)
+'''for c in range(2, 10, 2):
+    print (c)'''
 
 
 def gene_krupa_range(start, stop, even_step, odd_step):
@@ -74,10 +74,12 @@ def gene_krupa_range(start, stop, even_step, odd_step):
         d_list.append(d)
         if flag % 2 == 0:
             d += even_step
-        elif flag % 2 == 1:
+        else:
             d += odd_step
         flag += 1
     return d_list
+
+import random
 
 def stubborn_asker(low, high):
     """Ask for a number between low and high until actually given one.
@@ -85,19 +87,19 @@ def stubborn_asker(low, high):
     Ask for a number, and if the response is outside the bounds keep asking
     until you get a number that you think is OK
     """
-    import random
+
+    message = ("Enter a number between {low} and {high}: ".format(low=low, high=high))
 
     while True:
-        guess = int(input("Enter a number: "))
-        if guess < low:
-            print("guess is low")
-            guess = int(input("Enter a number: "))
-        elif guess > high:
-            print("guess is high")
-            guess = int(input("Enter a number: "))
+        guess = int(input(message))
+        if low < guess < high:
+            print("that number is in range!")
+            return guess
+        
         else:
-            print("your number is in range!")
-            return stubborn_asker
+            print("Try again!")
+    
+
 
        
 
@@ -114,10 +116,9 @@ def not_number_rejector(message):
         try:
             a_guess = int(input(message))
             return a_guess
-        except ValueError: 
-            print("That's not a number, try again.")
-        except TypeError:
-            print("That's not a number, try again.")
+        except Exception as e: 
+            print("{} is not a number, try again.".format(e))
+
     
 
 
@@ -141,10 +142,8 @@ def super_asker(low, high):
                 print("your number is in range!")
                 return guess
 
-        except ValueError: 
-            print("That's not a number, try again.")
-        except TypeError:
-            print("That's not a number, try again.")
+        except Exception as e: 
+            print("{} is not a number, try again.".format(e))
 
 
     # make sure guess_n is a valid number

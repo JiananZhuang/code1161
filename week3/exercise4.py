@@ -28,27 +28,27 @@ def binary_search(low, high, actual_number):
       tests aren't that smart yet.)
     """
 
-1	def binarySearch(alist, high):
-2	    first = 0
-3	    last = len(alist)-1
-4	    found = False
-5	
-6	    while first<=last and not found:
-7	        midpoint = (first + last)//2
-8	        if alist[midpoint] == high:
-9	            found = True
-10	        else:
-11	            if high < low[midpoint]:
-12	                last = midpoint-1
-13	            else:
-14	                first = midpoint+1
-15	
-16	    return found
-17	
-18	testlist = [0, 1, 2, 8, 13, 17, 19, 32, 42,]
-19	print(binarySearch(testlist, 3))
-20	print(binarySearch(testlist, 13))
-    return {"guess": guess, "tries": tries}
+    testlist = range(low, high) #this give a list of testing number.
+    first = testlist[0]   #the first item of the list
+    last = len(testlist)-1 #the last item is the length of the list - 1
+    found = False
+            
+    while first <= last and not found: #If the first number small and equal to last one and not found
+
+        midpoint = (first + last) // 2 # midpoint is the first number + last number divided by 2
+        if testlist[midpoint] == actual_number: # if the midpoint is the actualnumber then ture and return
+            found = True
+            return actual_number
+        else:                           #if the actual number is smaller than the mid number, the last number = midpoint -1, and vice versa
+            if actual_number < testlist[midpoint]:
+                last = midpoint - 1
+            else:
+                first = midpoint + 1
+
+    return found
+
+
+	
 
 
 if __name__ == "__main__":

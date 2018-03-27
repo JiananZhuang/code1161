@@ -33,32 +33,37 @@ def advancedGuessingGame():
     This is an example guessing game. It'll test as an example too.
     """
     print("\welcome to the guessing game!")
-    print("A number between 10 and 20 ?")
-    upperBound = 20
-    print("OK then, a number between 10 and {} ?".format(upperBound))
-    upperBound = int(upperBound)
 
-    actualNumber = random.randint(10, upperBound)
+    lowerbound = not_number_rejector("Enter a lower bound")
+    upperbound = not_number_rejector("Enter a upper bound")
+
+    while lowerbound >= upperbound:
+        upperbound = not_number_rejector("Enter an upper bound higher than the lower")
+
+    print("OK then, a number between {} and {} ?".format(lowerbound, upperbound))
+
+    actualNumber = random.randint(lowerbound, upperbound)
 
     guessed = False
 
     while not guessed:
         try:
             guessedNumber = int(input("guess a number: "))
-            print("you guessed {},".format(guessedNumber),)
-            if guessedNumber == actualNumber:
-                print("you got it!! It was {}".format(actualNumber))
-                guessed = True
+            print("you guessed {},".format(guessedNumber))
+            if guessedNumber > actualNumber:
+                print("too big, try again   ")
             elif guessedNumber < actualNumber:
                 print("too small, try again ")
             else:
-                print("too big, try again   ")
+                print("you got it!! It was {}".format(actualNumber))
+                guessed = True
+                
 
         except ValueError: 
             print("That's not a number, try again.")
 
             continue
-    return ('You Have Got It!')
+    return ('You got it!')
 
 
 

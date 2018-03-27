@@ -116,8 +116,10 @@ def not_number_rejector(message):
         try:
             a_guess = int(input(message))
             return a_guess
-        except Exception as e: 
-            print("{} is not a number, try again.".format(e))
+        except ValueError: 
+            print("{} is not a number, try again.")
+        except TypeError:
+            print("{} is not a number, try again.")
 
     
 

@@ -30,22 +30,24 @@ def binary_search(low, high, actual_number):
 
     testlist = range(low, high) #this give a list of testing number.
     first = testlist[0]   #the first item of the list
-    last = len(testlist)-1 #the last item is the length of the list - 1
+    last = testlist[len(testlist)-1] #the last item is the length of the list - 1
     found = False
+    tries = 0
             
-    while first <= last and not found: #If the first number small and equal to last one and not found
+    while not found: #If the first number small and equal to last one and not found
 
         midpoint = (first + last) // 2 # midpoint is the first number + last number divided by 2
         if testlist[midpoint] == actual_number: # if the midpoint is the actualnumber then ture and return
             found = True
-            return actual_number
+            guess = {"guess": actual_number, "tries": tries}
+            return guess
         else:                           #if the actual number is smaller than the mid number, the last number = midpoint -1, and vice versa
             if actual_number < testlist[midpoint]:
                 last = midpoint - 1
+                tries += 1
             else:
                 first = midpoint + 1
-
-    return found
+                tries += 1
 
 
 	

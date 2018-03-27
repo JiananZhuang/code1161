@@ -6,3 +6,4 @@ def install(package):
 if __name__ == '__main__':
     install('requests')
     install('beautifulsoup4')
+    install('colorama')

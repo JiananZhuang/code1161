@@ -181,12 +181,12 @@ while True:
             gameIsDone = False
             secretWord = getRandomWord(words)
             # save game_stats in high_scores.txt
-            with open('high_scores.txt', 'w') as outfile:
+            with open('high_scores.txt', 'w') as outfile:# w as write. r as read
                 json.dump(game_stats, outfile)
             display_highscores()
         else:
             # save game_stats in high_scores.txt
             with open('high_scores.txt', 'w') as outfile:
-                json.dump(game_stats, outfile)
+                json.dump(game_stats, outfile) 
             display_highscores()
             break

@@ -28,7 +28,40 @@ def advancedGuessingGame():
     Remember to think modular. Try to keep your functions small and single
     purpose if you can!
     """
-    return "You got it!"
+    """Play a game with the user.
+
+    This is an example guessing game. It'll test as an example too.
+    """
+    print("\welcome to the guessing game!")
+    print("A number between 10 and 20 ?")
+    upperBound = 20
+    print("OK then, a number between 10 and {} ?".format(upperBound))
+    upperBound = int(upperBound)
+
+    actualNumber = random.randint(10, upperBound)
+
+    guessed = False
+
+    while not guessed:
+        try:
+            guessedNumber = int(input("guess a number: "))
+            print("you guessed {},".format(guessedNumber),)
+            if guessedNumber == actualNumber:
+                print("you got it!! It was {}".format(actualNumber))
+                guessed = True
+            elif guessedNumber < actualNumber:
+                print("too small, try again ")
+            else:
+                print("too big, try again   ")
+
+        except ValueError: 
+            print("That's not a number, try again.")
+        except TypeError:
+            print("That's not a number, try again.")
+            continue
+    return ('You Have Got It!')
+
+
 
 
 if __name__ == "__main__":

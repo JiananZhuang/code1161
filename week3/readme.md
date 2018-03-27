@@ -1,2 +1,2 @@
 TODO: Reflect on what you learned this week and what is still unclear.
-# TypeError: 'float' object cannot be interpreted as an integer has become an issue. 
+#TypeError: 'float' object cannot be interpreted as an integer has become an issue. Json is a list that contains dictionary. While turn gives infinity loop, which can only stop by return or break once reach certain condition. Binary search is give an middle number in a range to narrow down the range and find the exact number. This is a resonable guess. 

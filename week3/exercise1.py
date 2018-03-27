@@ -86,23 +86,18 @@ def stubborn_asker(low, high):
     until you get a number that you think is OK
     """
     import random
-    n = random.randint(low, high)
-    guess = int(input("Enter a number: "))
 
-    if n == guess:
-        print('Yes, You guessed it!')
-        return
-
-    while n != guess:
-        if guess < n:
+    while True:
+        guess = int(input("Enter a number: "))
+        if guess < low:
             print("guess is low")
             guess = int(input("Enter a number: "))
-        elif guess > n:
+        elif guess > high:
             print("guess is high")
             guess = int(input("Enter a number: "))
         else:
-            print("you guessed it!")
-            break
+            print("your number is in range!")
+            return stubborn_asker
 
        
 
@@ -114,15 +109,16 @@ def not_number_rejector(message):
     "six", "8!") then throw it out and ask for an actual number.
     When you do get a number, return it.
     """
-    a_guess = input(message)
-
-    while type(a_guess) != int():
-        print("Enter a number: ")
-
-    if type(a_guess) == int():
-        print("Thank you, that is the one")
-
-    return
+    
+    while True:
+        try:
+            a_guess = int(input(message))
+            return a_guess
+        except ValueError: 
+            print("That's not a number, try again.")
+        except TypeError:
+            print("That's not a number, try again.")
+    
 
 
 def super_asker(low, high):
@@ -131,31 +127,48 @@ def super_asker(low, high):
     Combine stubborn_asker and not_number_rejector to make a function
     that does it all!
     """
-    import random
-    n = random.randint(low, high)
     flag = False
+    message = 'Guess a number: '
+    while True:
+        try:
+            guess = int(input(message))
+
+            if guess < low:
+                print("guess is low")
+            elif guess > high:
+                print("guess is high")
+            else:
+                print("your number is in range!")
+                return guess
+
+        except ValueError: 
+            print("That's not a number, try again.")
+        except TypeError:
+            print("That's not a number, try again.")
+
 
     # make sure guess_n is a valid number
-    while not flag:
+    '''while not flag:
         try:
             guess_number = int(input('input a nubmer between {} and {}: '.format(low,high)))
-            flag = True
+        
+            if guess_number > n:
+                print("Your guesses is too high, Try again")
+
+            elif guess_number < n:
+                print("Your guesses is too low, Try again")
+            
+            else:
+                print("You Win !!!")
+
+                flag = True
+                return
+
         except ValueError:
             print ('Please try a number')    
-    # guess_n now is a valid number 
-      # find the right one
-            continue
-        if guess_number > n:
-            print("Your guesses is too high, Try again")
-        elif guess_number < n:
-            print("Your guesses is too low, Try again")
-        
-        else guess_number = n:
-            print("You Win !!!")
-
-            flag = True
-            return
-
+        # guess_n now is a valid number 
+        # find the right one
+            continue'''
 
 
 

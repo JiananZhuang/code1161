@@ -35,8 +35,9 @@ def get_some_details():
          dictionaries.
     """
     json_data = open(LOCAL + "/lazyduck.json").read()
-
     data = json.loads(json_data)
+    
+    
     return {"lastName":       None,
             "password":       None,
             "postcodePlusID": None

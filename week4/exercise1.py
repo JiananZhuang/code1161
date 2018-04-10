@@ -82,7 +82,18 @@ def wordy_pyramid():
     """
     url = "http://api.wordnik.com/v4/words.json/randomWords?api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5&minLength=10&maxLength=10&limit=1"
     r = requests.get(url)
-    data = Beautifulsoup(r.content
+    data = Beautifulsoup(r.content)
+    
+    result_list = []
+    for i in range (20):
+        row_list = [data]
+        for j in range(i+1):
+            element = str(j)
+            row_list.append(data)
+        result_list.append(row_list)
+
+    return result_list
+
 
 
 
@@ -128,6 +139,12 @@ def diarist():
     TIP: remember to commit 'lasers.pew' and push it to your repo, otherwise
          the test will have nothing to look at.
     """
+
+    if os.path.exists('lasers.pew'):
+        data = json.load(open('lasers.pew'))
+        info = soup.find_all("M10 P1")
+    with open('lasers.pew', 'w') as outfile:
+    json.dump(info, outfile)
     
     
 

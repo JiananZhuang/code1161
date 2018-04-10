@@ -57,7 +57,7 @@ def countdown(message, start, stop, completion_message):
             countdown = countdown - 1
             res = message + " " + str(countdown)
             list_of_countdown_messages.append(res)
-    else
+    else:
         countdown = stop
         while countdown > start:
             countdown = countdown - 1
@@ -80,11 +80,18 @@ def countdown(message, start, stop, completion_message):
 # The stub functions are made for you, and each one is tested, so this should
 # hand hold quite nicely.
 def calculate_hypotenuse(base, height):
-    pass
-
+    
+    a = base
+    b = height
+    c = sqrt(a**2 + b**2)
+    print("The length of the hypotenuse is", c )
+    
 
 def calculate_area(base, height):
-    pass
+    a = base
+    b = height
+    area =  (a**b**0.5)
+    print("The area is", area )
 
 
 def calculate_perimeter(base, height):

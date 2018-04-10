@@ -95,7 +95,12 @@ def calculate_area(base, height):
 
 
 def calculate_perimeter(base, height):
-    pass
+    a = base
+    b = height
+    c = sqrt(a**2 + b**2)
+    perimeter = a + b + c
+    return calculate_hypotenuse
+
 
 
 def calculate_aspect(base, height):
@@ -131,7 +136,7 @@ def get_triangle_facts(base, height, units="mm"):
 # but with the values and shape that relate to the specific
 # triangle we care about.
 def tell_me_about_this_right_triangle(facts_dictionary):
-    tall = """
+    tall = 
             {height}
             |
             |     |\\
@@ -139,21 +144,21 @@ def tell_me_about_this_right_triangle(facts_dictionary):
                   |  \\
                   |   \\
                   ------
-                  {base}"""
-    wide = """
+                  {base}
+    wide = 
             {hypotenuse}
              ↓         ∕ |
                    ∕     | <-{height}
                ∕         |
             ∕------------|
-              {base}"""
-    equal = """
+              {base}
+    equal = 
             {height}
             |
             |     |⋱
             |____>|  ⋱ <-{hypotenuse}
                   |____⋱
-                  {base}"""
+                  {base}
 
     pattern = ("This triangle is {area}{units}²\n"
                "It has a perimeter of {perimeter}{units}\n"

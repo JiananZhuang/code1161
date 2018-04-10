@@ -24,3 +24,13 @@ example:
     dictionary
     look through the json file by using Dictionary
     name["lol"]
+''' Brackets [] are used to define mutable data type as lists or list comprehensions (list)
+Brackets can be used for indexing and lookup of list elements
+can be used to access the individual characters of a string or to making string slicing
+
+{} are used in python to define a set or dictionary. set.
+dictionary name[key name]
+() can e used to create immutable sequence data type tuple.
+() can also be used to specify the order of operations in expressions. (1+2)**2
+() can be used define the parameters of a functoin definition and a function call'''
+

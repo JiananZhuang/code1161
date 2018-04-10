@@ -36,12 +36,12 @@ def get_some_details():
     """
     json_data = open(LOCAL + "/lazyduck.json").read()
     data = json.loads(json_data)
-    
+    data["results"][0]
     
     return {"lastName":       None,
             "password":       None,
             "postcodePlusID": None
-            }
+                        }
 
 
 
@@ -80,7 +80,11 @@ def wordy_pyramid():
     ]
     TIP: to add an argument to a URL, use: ?argName=argVal e.g. &minLength=
     """
-    pass
+    url = "http://api.wordnik.com/v4/words.json/randomWords?api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5&minLength=10&maxLength=10&limit=1"
+    r = requests.get(url)
+    data = Beautifulsoup(r.content
+
+
 
 
 def wunderground():
@@ -111,7 +115,8 @@ def wunderground():
 
 
 def diarist():
-    """Read gcode and find facts about it.
+    
+    """Read gcode and find facts about it. 
 
     Read in Trispokedovetiles(laser).gcode and count the number of times the
     laser is turned on and off. That's the command "M10 P1".
@@ -123,8 +128,8 @@ def diarist():
     TIP: remember to commit 'lasers.pew' and push it to your repo, otherwise
          the test will have nothing to look at.
     """
-    pass
-
+    
+    
 
 if __name__ == "__main__":
     functions = [obj for name,obj in inspect.getmembers(sys.modules[__name__]) if (inspect.isfunction(obj))]

@@ -6,6 +6,9 @@ import os
 import requests
 import inspect
 import sys
+from bs4 import BeautifulSoup
+import time
+
 
 # Handy constants
 LOCAL = os.path.dirname(os.path.realpath(__file__))  # the context of this file
@@ -25,22 +28,28 @@ def get_some_details():
     Read it in and use the json library to convert it to a dictionary.
     Return a new dictionary that just has the last name, password, and the
     number you get when you add the postcode to the id-value.
-    TIP: Make sure that you add the numbers, not concatinate the strings.
+    TIP: Make sure that you add the numbers, not concatenate the strings.
          E.g. 2000 + 3000 = 5000 not 20003000
     TIP: Keep a close eye on the format you get back. JSON is nested, so you
          might need to go deep. E.g to get the name title you would need to:
          data["results"][0]["name"]["title"]
          Look out for the type of brackets. [] means list and {} means
-         dictionary, you'll need integer indeces for lists, and named keys for
+         dictionary, you'll need integer indices for lists, and named keys for
          dictionaries.
     """
     json_data = open(LOCAL + "/lazyduck.json").read()
     data = json.loads(json_data)
-    data["results"][0]
-    
-    return {"lastName":       None,
-            "password":       None,
-            "postcodePlusID": None
+    lastName = data["results"][0]["name"]["last"]
+
+    password = data["results"][0]["login"]["password"]
+
+    postcode = data["results"][0]["location"]["postcode"]
+    id = data["results"][0]["id"]["value"]
+    postcodePlusID = int(postcode) + int(id)
+
+    return {"lastName":       lastName,
+            "password":       password,
+            "postcodePlusID": postcodePlusID
                         }
 
 
@@ -59,16 +68,16 @@ def wordy_pyramid():
     Return the pyramid as a list of strings.
     I.e. ["cep", "dwine", "tenoner", ...]
     [
-    "cep",
-    "dwine",
-    "tenoner",
-    "ectomeric",
-    "archmonarch",
-    "phlebenterism",
-    "autonephrotoxin",
-    "redifferentiation",
-    "phytosociologically",
-    "theologicohistorical",
+    "cep", 3
+    "dwine",5
+    "tenoner",7
+    "ectomeric",8
+    "archmonarch",11
+    "phlebenterism",13
+    "autonephrotoxin",15
+    "redifferentiation",17
+    "phytosociologically",19
+    "theologicohistorical",20
     "supersesquitertial",
     "phosphomolybdate",
     "spermatophoral",
@@ -80,18 +89,31 @@ def wordy_pyramid():
     ]
     TIP: to add an argument to a URL, use: ?argName=argVal e.g. &minLength=
     """
-    url = "http://api.wordnik.com/v4/words.json/randomWords?api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5&minLength=10&maxLength=10&limit=1"
-    r = requests.get(url)
-    data = Beautifulsoup(r.content)
+    url = "http://api.wordnik.com/v4/words.json/randomWords?api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5&minLength=3&maxLength=20&limit=1"
+    #r = requests.get(url)
+    #data = BeautifulSoup(r.content)
     
     result_list = []
-    for i in range (20):
-        row_list = [data]
-        for j in range(i+1):
-            element = str(j)
-            row_list.append(data)
-        result_list.append(row_list)
+    for i in range (9):
 
+        print(i)
+
+        length = 2*i+3
+        url = "http://api.wordnik.com/v4/words.json/randomWords?api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5&minLength=" + str(length) + "&maxLength=" + str(length) + "&limit=1"
+        r = requests.get(url)
+        data = BeautifulSoup(r.content)
+        #print(data[0]["word"])
+        result_list.append(data[0]["word"])
+
+    '''    
+    for i in range (9):
+        length = 20 - i*2
+        url = "http://api.wordnik.com/v4/words.json/randomWords?api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5&minLength=" + str(length) + "&maxLength=" + str(length) + "&limit=1"
+        r = requests.get(url)
+        data = BeautifulSoup(r.content)
+        #print(data[0]["word"])
+        result_list.append(data[0]["word"])
+    '''
     return result_list
 
 
@@ -144,7 +166,7 @@ def diarist():
         data = json.load(open('lasers.pew'))
         info = soup.find_all("M10 P1")
     with open('lasers.pew', 'w') as outfile:
-    json.dump(info, outfile)
+        json.dump(info, outfile)
     
     
 

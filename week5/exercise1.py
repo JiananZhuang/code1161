@@ -99,12 +99,18 @@ def calculate_perimeter(base, height):
     b = height
     c = sqrt(a**2 + b**2)
     perimeter = a + b + c
-    return calculate_hypotenuse
-
+    return calculate_perimeter
+    
 
 
 def calculate_aspect(base, height):
-    pass
+    a = base
+    b = height
+    c = sqrt(a**2 + b**2)
+    s = (a + b + c)**0.5
+    aspect = (a**b**c)/8**(s - a)**(s - b)**(s - c)
+
+    return calculate_aspect
 
 
 # Make sure you reuse the functions you've already got
@@ -136,7 +142,7 @@ def get_triangle_facts(base, height, units="mm"):
 # but with the values and shape that relate to the specific
 # triangle we care about.
 def tell_me_about_this_right_triangle(facts_dictionary):
-    tall = 
+    tall = """
             {height}
             |
             |     |\\
@@ -144,22 +150,30 @@ def tell_me_about_this_right_triangle(facts_dictionary):
                   |  \\
                   |   \\
                   ------
-                  {base}
-    wide = 
+                  {base}"""
+    wide = """
             {hypotenuse}
              ↓         ∕ |
                    ∕     | <-{height}
                ∕         |
             ∕------------|
-              {base}
-    equal = 
+              {base}"""
+    equal = """
             {height}
             |
             |     |⋱
             |____>|  ⋱ <-{hypotenuse}
                   |____⋱
-                  {base}
-
+                  {base}"""
+    print("Input lengths of shorter triangle sides:")
+    units = input("Please enter the unit (m²,dm²,cm² or mm²),: ")
+    base = float(input("base: "))
+    height = float(input("height: "))
+    hypotenuse = sqrt(base**2 + height**2)
+    area = base**height**0.5
+    perimeter = base + height + hypotenuse
+    s = (base + height + hypotenuse)**0.5
+    aspect = (base**height**hypotenuse)/8**(s - base)**(s - height)**(s - hypotenuse)
     pattern = ("This triangle is {area}{units}²\n"
                "It has a perimeter of {perimeter}{units}\n"
                "This is a {aspect} triangle.\n")

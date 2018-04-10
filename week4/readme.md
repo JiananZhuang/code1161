@@ -24,3 +24,4 @@ example:
     dictionary
     look through the json file by using Dictionary
     name["lol"]
+TODO: Reflect on what you learned this week and what is still unclear.

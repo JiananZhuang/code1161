@@ -34,3 +34,4 @@ dictionary name[key name]
 () can also be used to specify the order of operations in expressions. (1+2)**2
 () can be used define the parameters of a functoin definition and a function call'''
 
+TODO: Reflect on what you learned this week and what is still unclear.

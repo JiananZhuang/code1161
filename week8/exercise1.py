@@ -83,18 +83,17 @@ def pet_filter(letter="a"):
             "bali cattle", "gayal", "turkey", "goldfish", "rabbit", "koi",
             "canary", "society finch", "fancy mouse", "siamese fighting fish",
             "fancy rat and lab rat", "mink", "red fox", "hedgehog", "guppy"]
-    
+    pets_list = []    
     for a in pets:
-        if 'a' in pets:
-
-
+        if letter in pets:
+            pet_list.append(a)
     
-
-
+    return pets_list
 
 
 
 def best_letter_for_pets():
+
     """Return the letter that is present at least once in the most pet names.
 
     Reusing the pet_filter, find the letter that gives the longest list of pets
@@ -134,7 +133,13 @@ def make_filler_text_dictionary():
     """
     
     import requests
-    return
+    word_of_dictionary = {}
+    url = "http://api.wordnik.com/v4/words.json/randomWords?api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5&minLength={}&maxLength={}&limit=1"
+    for i in range (0,3):
+        word_of_dictionary[i] = requests.get(url.format(i,i)).json()
+    return word_of_dictionary
+    
+    
 
 
 def random_filler_text(number_of_words=200):
@@ -149,7 +154,8 @@ def random_filler_text(number_of_words=200):
         see line 77 of week4/hangman_leadboard.py for an example.
     """
     import random
-    pass
+    wordIndex = random.randint(0, len(wordList) - 1)
+    return wordList[wordIndex]
 
 
 def fast_filler(number_of_words=200):

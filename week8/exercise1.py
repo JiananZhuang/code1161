@@ -171,7 +171,9 @@ def fast_filler(number_of_words=200):
     into and out of the file. Be careful when you read it back in, it'll
     convert integer keys to strings.
     """
-    pass
+    with open('dict_racey.words', 'w') as outfile:
+        json.dump(game_stats, outfile)
+
 
 
 if __name__ == '__main__':

@@ -92,8 +92,8 @@ def wordy_pyramid():
     url = "http://api.wordnik.com/v4/words.json/randomWords?api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5&minLength=3&maxLength=20&limit=1"
     #r = requests.get(url)
     #data = BeautifulSoup(r.content)
-    
-    result_list = []
+
+    '''result_list = []
     for i in range (9):
 
         print(i)
@@ -103,9 +103,19 @@ def wordy_pyramid():
         r = requests.get(url)
         data = BeautifulSoup(r.content)
         #print(data[0]["word"])
-        result_list.append(data[0]["word"])
+        result_list.append(data[0]["word"])'''
+    pyramid1 = []
+    pyramid2 = []
+    url = "http://api.wordnik.com/v4/words.json/randomWords?api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5&minLength={}&maxLength={}&limit=1"
+    for length in range(3, 21):
+        if length % 2 == 1:
+            pyramid1.append(requests.get(url.format(length, length)).json()[0]['word'])
+        else:
+            pyramid2 = [requests.get(url.format(length, length)).json()[0]['word']] + pyramid2
 
-    '''    
+    return pyramid1 + pyramid2
+
+    ''' 
     for i in range (9):
         length = 20 - i*2
         url = "http://api.wordnik.com/v4/words.json/randomWords?api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5&minLength=" + str(length) + "&maxLength=" + str(length) + "&limit=1"
@@ -141,10 +151,10 @@ def wunderground():
     the_json = json.loads(r.text)
     obs = the_json['current_observation']
 
-    return {"state":           None,
-            "latitude":        None,
-            "longitude":       None,
-            "local_tz_offset": None}
+    return {"state":           obs["display_location"]["state"],
+            "latitude":        obs["display_location"]["latitude"],
+            "longitude":       obs["display_location"]["longitude"],
+            "local_tz_offset": obs["local_tz_offset"]}
 
 
 def diarist():
@@ -162,11 +172,18 @@ def diarist():
          the test will have nothing to look at.
     """
 
-    if os.path.exists('lasers.pew'):
-        data = json.load(open('lasers.pew'))
-        info = soup.find_all("M10 P1")
-    with open('lasers.pew', 'w') as outfile:
-        json.dump(info, outfile)
+    count = 0
+    laser_file = 'Trispokedovetiles(laser).gcode'
+    with open(laser_file, 'r') as laser:
+        commands = laser.read().split('\n')
+        for command in commands:
+            if "M10 P1" in command:
+                count += 1
+
+    pew_file = 'lasers.pew'
+    with open(pew_file, 'w') as pew:
+        pew.write(str(count))
+    return count
     
     
 

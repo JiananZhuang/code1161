@@ -106,9 +106,13 @@ def abba(source="abba", guard=3):
             return "o"
         else:
             return letter
+    ans = ''
+    for x in list(source):
+        ans += apply_rules(x, guard-1)
+    return ans       
 
     # write the rest of the function here
-    pass
+   
 
 
 def koch(t, order, size):
@@ -154,7 +158,27 @@ def square_koch(t, order, size):
     trace = ""
     # write the rest of the function here.
     return str(order) + trace
-    pass
+def square_koch(t, order, size):
+    r"""Draw a koch curve with a square rather than a triangular point.
+           _
+    e.g. _| |_ rather than _/\_
+    Leave the turtle facing the same direction.
+    """
+    trace = ""
+    # write the rest of the function here.
+    if order == 0:          # The base case is just a straight line
+        t.forward(size)
+    else:
+        trace += square_koch(t, order-1, size/3)   # Go 1/3 of the way
+        t.left(90)
+        trace += square_koch(t, order-1, size/3)
+        t.right(90)
+        trace += square_koch(t, order-1, size/3)
+        t.right(90)
+        trace += square_koch(t, order-1, size/3)
+        t.left(90)
+        trace += square_koch(t, order-1, size/3)
+    return str(order) + trace
 
 
 def draw_square(steps=4):

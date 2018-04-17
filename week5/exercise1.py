@@ -179,7 +179,10 @@ def tell_me_about_this_right_triangle(facts_dictionary):
                "This is a {aspect} triangle.\n")
 
     facts = pattern.format(**facts_dictionary)
-
+    description += "\n" + facts
+    print(type(description))
+    print(description)
+    return str(description)
 
 def triangle_master(base,
                     height,
@@ -213,7 +216,7 @@ def wordy_pyramid():
 
 
 def get_a_word_of_length_n(length):
-    pass
+    return list(map(get_a_word_of_length_n, list_of_lengths))
 
 
 def list_of_words_with_lengths(list_of_lengths):

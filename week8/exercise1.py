@@ -70,7 +70,7 @@ def put_behind_bars(input_string="very naughty boy"):
     """
     s = "|"
     input_string = " " + input_string + " "
-    print (s.join(input_string))
+    return (s.join(input_string))
 
 
 def pet_filter(letter="a"):
@@ -101,7 +101,7 @@ def best_letter_for_pets():
     """
     import string
     the_alphabet = string.ascii_lowercase
-    pass
+    
 
 
 def make_filler_text_dictionary():
@@ -171,7 +171,7 @@ def fast_filler(number_of_words=200):
     into and out of the file. Be careful when you read it back in, it'll
     convert integer keys to strings.
     """
-    with open('dict_racey.words', 'w') as outfile:
+    with open('speedy_dict.words', 'w') as outfile:
         json.dump(game_stats, outfile)
 
 
